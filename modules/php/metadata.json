@@ -1,0 +1,44 @@
+{
+  "license": "Apache 2.0",
+  "dependencies": [
+
+  ],
+  "project_page": "https://github.com/thias/puppet-php",
+  "source": "git://github.com/thias/puppet-php",
+  "version": "0.2.5",
+  "checksums": {
+    "Modulefile": "0658c199d6f76004fdfccc443968754e",
+    "tests/cli.pp": "4acf74bcea023f76f2e9eb7acf38bbb3",
+    "templates/httpd/php.conf.orig": "50015ff8bb23090aae4f8556987c5e40",
+    "templates/module.ini.erb": "f6f67a64c7e3fef16cf12b3d034feb66",
+    "ChangeLog": "2c4c11ee538346ca88dae222019c3cf3",
+    "manifests/mod_php5.pp": "b6dafd25aae2f12e2306e15565747fc3",
+    "manifests/fpm/conf.pp": "8f0165fbfce540df27e988125e68a8ee",
+    "tests/module.pp": "461e492ab58e9777a3b09e7da5e69c54",
+    "manifests/common.pp": "a44aacd2abb6ba24bbc1678e1d986bdd",
+    "tests/fpm/daemon.pp": "6804b102876223b40b3382668bf61434",
+    "templates/php.ini-el6.erb": "b91b86c49339f7fa17fc360e9c61d3f1",
+    "tests/mod_php5.pp": "ff071f8ba0eb1a2b90e71a6de246df30",
+    "templates/httpd/php.conf.erb": "67cdc86b03fefa7cfb2631c5adc7e94f",
+    "templates/php.ini-el6.orig": "a82c6a40a5bbd7188c2cbd81d98e5faa",
+    "templates/fpm/pool.conf.erb": "9d9667d27fd6502e47966bb3e74b84e3",
+    "manifests/ini.pp": "d8327350b7ba1e272ce99aee1f9d2adb",
+    "README.md": "a0833b5a31b5be12c9c3c74a284c7e7e",
+    "LICENSE": "99219472697a01561e7630d63aaecdc1",
+    "tests/ini.pp": "6ccaff70f981929198f22e398beca6ff",
+    "manifests/fpm/daemon.pp": "23dd92ece6401c3a763c441829ca30dd",
+    "tests/module/ini.pp": "ba5ad8ccc8bf36c6a4f513c8498262d8",
+    "templates/fpm/php-fpm.conf.erb": "20aa19c4329549c562fe0883f3c0500e",
+    "manifests/cli.pp": "0821e7f598d14d80808d67a44c037922",
+    "tests/fpm/conf.pp": "8ab22d2e1e3821072e57c30734de70cd",
+    "manifests/module/ini.pp": "80507452ccdc91d8725b5a9c57c3b8b6",
+    "manifests/module.pp": "4c1bb65b6fe43277b33ca20c20da6155"
+  },
+  "description": "Install and configure PHP for any of CLI, Apache httpd module and FastCGI.",
+  "summary": "PHP module",
+  "types": [
+
+  ],
+  "author": "Matthias Saou",
+  "name": "thias-php"
+}
