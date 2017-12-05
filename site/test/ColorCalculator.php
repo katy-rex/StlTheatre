@@ -5,20 +5,26 @@ include('config/init.php');
 echo "
 	<form action='' method='get'>
 		<select name='Color1'>
-			<option value='Red'>Red
+			<option value='Red'>
+			Red
 			</option>
-			<option value='Blue'>Blue
+			<option value='Blue'>
+			Blue
 			</option>
-			<option value='Yellow'>Yellow
+			<option value='Yellow'>
+			Yellow
 			</option>
 		</select>
 		+
 		<select name='Color2'>
-			<option value='Red'>Red
+			<option value='Red'>
+			Red
 			</option>
-			<option value='Blue'>Blue
+			<option value='Blue'>
+			Blue
 			</option>
-			<option value='Yellow'>Yellow
+			<option value='Yellow'>
+			Yellow
 			</option>
 		</select>
 		<input type='submit' name='submit' />

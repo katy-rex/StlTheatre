@@ -7,13 +7,17 @@ echo "
 		<input type='text' name='Variable1' />
 		<input type='text' name='Variable2' />
 		<select name='Functions'>
-			<option value='Add'>Add
+			<option value='Add'>
+			Add
 			</option>
-			<option value='Subtract'>Subtract
+			<option value='Subtract'>
+			Subtract
 			</option>
-			<option value='Multiply'>Multiply
+			<option value='Multiply'>
+			Multiply
 			</option>
-			<option value='Divide'>Divide
+			<option value='Divide'>
+			Divide
 			</option>
 		</select>
 		<input type='submit' />
