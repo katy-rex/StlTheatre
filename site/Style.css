@@ -139,5 +139,10 @@ h3 {
 }
 
 .Job, .TheatreName, .Headline, .QuestionTitle {
-	font-weight: bold;
+	font-weight: bolder;
+	font-size: 120%;
 }
+
+/*.Submitter {
+	font-size: 75%;
+}*/

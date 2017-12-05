@@ -21,36 +21,18 @@
 		<div class="DivideLine">
 		</div>
 		<div class="Questions">
-			<p class="QuestionTitle">
-				What is the question?
-			</p>
-			<p class="QuestionAnswer">
-				This is an answer for the question listed above.
-			</p>
-			<p class="QuestionTitle">
-				What is the question?
-			</p>
-			<p class="QuestionAnswer">
-				This is an answer for the question listed above.
-			</p>
-			<p class="QuestionTitle">
-				What is the question?
-			</p>
-			<p class="QuestionAnswer">
-				This is an answer for the question listed above.
-			</p>
-			<p class="QuestionTitle">
-				What is the question?
-			</p>
-			<p class="QuestionAnswer">
-				This is an answer for the question listed above.
-			</p>
-			<p class="QuestionTitle">
-				What is the question?
-			</p>
-			<p class="QuestionAnswer">
-				This is an answer for the question listed above.
-			</p>
+			<?php
+				$FAQ=array (
+					"Question 1?"=>"Answer to question 1.",
+					"What should you see this weekend?"=>"Go see a show!",
+					"Question 3?"=>"The answer to question 3."
+				);
+
+				foreach($FAQ as $Question => $Answer){
+					echo "<p class='Headline'>".$Question."</p>";
+					echo "<p>".$Answer."</p>";
+				}
+			?>
 		</div>
 		<div class="IncludeFooter">
 			<?php include 'include/footer.php';

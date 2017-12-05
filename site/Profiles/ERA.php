@@ -4,7 +4,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Raleway"
 	rel="stylesheet">
 		<title>
-			St. Louis Theatre News
+			St. Louis Theatres - ERA
 		</title>
 	</head>
 	<body>
@@ -15,12 +15,26 @@
 		</div>
 		<div class="PageTitle">
 			<h2>
-				News
+				ERA
 			</h2>
 		</div>
 		<div class="DivideLine">
 		</div>
+		<div class="About">
+			<h3>
+				About
+			</h3>
+			<p>
+				This is the about copy. Where people submit what their
+				theatre is about.
+			</p>
+		</div>
+		<div class="DivideLine">
+		</div>
 		<div class="News">
+			<h3>
+				News
+			</h3>
 			<?php
 				$News=array(
 					array(
@@ -32,25 +46,6 @@
 						"Submitter"=>"ERA",
 						"SubmitDate"=>"12/3/2017"
 					),
-					array(
-						"Headline"=>"Faust Festival next August!",
-						"Blurb"=>"From the team that brought you the Phaedra
-						Phestival comes a new festival you won't have to
-						sell your soul to enjoy. The Faust Festival will
-						run mid-August 2018.",
-						"Submitter"=>"YoungLiars",
-						"SubmitDate"=>"12/1/2017"
-					),
-					array(
-						"Headline"=>"TCG Conference 2018 to be held in
-						St. Louis!",
-						"Blurb"=>"St. Louis is hosting this year's TCG
-						Conference. Thousands of artists across the world
-						will descend on the midwest city for a week of
-						theatre education and enjoyment.",
-						"Submitter"=>"Shakespeare Festival St. Louis",
-						"SubmitDate"=>"11/20/2017"
-					)
 				);
 
 				foreach ($News as $Row){
