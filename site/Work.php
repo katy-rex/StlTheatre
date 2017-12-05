@@ -109,8 +109,7 @@
 						"SubmitDate"=>"12/1/2017"
 					),
 					array(
-						"JobName"=>"TCG Conference 2018 to be held in
-						St. Louis!",
+						"JobName"=>"WOMAN PLAYWRIGHTS NEEDED!",
 						"JobDescription"=>"We are now accepting
 						submissions from woman playwrights for our new
 						concoction, OR WHAT YOU WILL, THE THIRD!
