@@ -1,79 +1,84 @@
 <?php
 include('config/init.php');
 
-
-echo "
+echo"
 	<form action='' method='get'>
 		<select name='Color1'>
 			<option value='Red'>
-			Red
+				Red
 			</option>
 			<option value='Blue'>
-			Blue
+				Blue
 			</option>
 			<option value='Yellow'>
-			Yellow
+				Yellow
 			</option>
 		</select>
 		+
 		<select name='Color2'>
 			<option value='Red'>
-			Red
+				Red
 			</option>
 			<option value='Blue'>
-			Blue
+				Blue
 			</option>
 			<option value='Yellow'>
-			Yellow
+				Yellow
 			</option>
 		</select>
-		<input type='submit' name='submit' />
+		<input type='submit' name='Submit' />
 	</form>
 ";
 
-// var_dump($_REQUEST);
-
-if(isset($_REQUEST['submit'])){
+if(isset($_REQUEST['Submit'])){
 	if($_REQUEST['Color1'] == 'Red'){
 		if($_REQUEST['Color2'] == 'Red'){
-			echo'<body style="background-color:red">
-				<h2>You mix red with red, you get red!</h2>';
+			$BackgroundColor = 'Red';
+			ChangeBackground($BackgroundColor);
 		}
 		elseif($_REQUEST['Color2'] == 'Blue'){
-			echo'<body style="background-color:purple">
-			<h2>You mix red with blue, you get purple!</h2>';
+			$BackgroundColor = 'Purple';
+			ChangeBackground($BackgroundColor);
 		}
 		elseif($_REQUEST['Color2'] == 'Yellow'){
-			echo'<body style="background-color:orange">
-			<h2>You mix red with yellow, you get orange!</h2>';
+			$BackgroundColor = 'Orange';
+			ChangeBackground($BackgroundColor);
 		}
 	}
 	if($_REQUEST['Color1'] == 'Blue'){
 		if($_REQUEST['Color2'] == 'Red'){
-			echo'<body style="background-color:purple">
-				<h2>You mix blue with red, you get purple!</h2>';
+			$BackgroundColor = 'Purple';
+			ChangeBackground($BackgroundColor);
 		}
 		elseif($_REQUEST['Color2'] == 'Blue'){
-			echo'<body style="background-color:blue">
-			<h2>You mix blue with blue, you get blue!</h2>';
+			$BackgroundColor = 'Blue';
+			ChangeBackground($BackgroundColor);
 		}
 		elseif($_REQUEST['Color2'] == 'Yellow'){
-			echo'<body style="background-color:green">
-			<h2>You mix blue with yellow, you get green!</h2>';
+			$BackgroundColor = 'Green';
+			ChangeBackground($BackgroundColor);
 		}
 	}
 	if($_REQUEST['Color1'] == 'Yellow'){
 		if($_REQUEST['Color2'] == 'Red'){
-			echo'<body style="background-color:orange">
-				<h2>You mix yellow with red, you get orange!</h2>';
+			$BackgroundColor = 'Orange';
+			ChangeBackground($BackgroundColor);
 		}
 		elseif($_REQUEST['Color2'] == 'Blue'){
-			echo'<body style="background-color:green">
-			<h2>You mix yellow with blue, you get green!</h2>';
+			$BackgroundColor = 'Green';
+			ChangeBackground($BackgroundColor);
 		}
 		elseif($_REQUEST['Color2'] == 'Yellow'){
-			echo'<body style="background-color:yellow">
-			<h2>You mix yellow with yellow, you get yellow!</h2>';
+			$BackgroundColor = 'Yellow';
+			ChangeBackground($BackgroundColor);
 		}
 	}
 }
+
+function ChangeBackground($BackgroundColor) {
+	echo'<body style="background-color:'.$BackgroundColor.'"></body>';
+	echo'<h2>You mix '.$_REQUEST['Color1'].' with '.$_REQUEST['Color2'].
+		' you get '.$BackgroundColor.'!</h2>';
+}
+
+?>
