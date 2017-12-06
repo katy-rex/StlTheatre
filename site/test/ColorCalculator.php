@@ -76,9 +76,13 @@ if(isset($_REQUEST['Submit'])){
 }
 
 function ChangeBackground($BackgroundColor) {
-	echo'<body style="background-color:'.$BackgroundColor.'"></body>';
-	echo'<h2>You mix '.$_REQUEST['Color1'].' with '.$_REQUEST['Color2'].
-		' you get '.$BackgroundColor.'!</h2>';
+	echo'<body style="background-color:'.$BackgroundColor.'">
+			<h2>
+				You mix '.strtolower($_REQUEST['Color1']).' with '
+				.strtolower($_REQUEST['Color2']).
+				' you get '.strtolower($BackgroundColor).'!
+			</h2>
+		</body>';
 }
 
 ?>
