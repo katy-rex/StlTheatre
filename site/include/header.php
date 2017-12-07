@@ -1,6 +1,6 @@
 <?php
 
-function PrintHeader(){
+function PrintHeader($SiteTitle, $PageTitle){
 	echo'
 	<head>
 	<link rel="stylesheet" type="text/css" href="Style.css">
