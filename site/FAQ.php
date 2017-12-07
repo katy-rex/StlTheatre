@@ -5,7 +5,11 @@
 	?>
 	<div class='Questions')>
 		<?php
-			GetFaqQuestions();
+			$Faq = GetFaq();
+			foreach($Faq as $Question => $Answer){
+				echo"<p class='Headline'>".$Question."</p>
+				<p>".$Answer."</p>";
+			};
 		?>
 	</div>
 	<?php

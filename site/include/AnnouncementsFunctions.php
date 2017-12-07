@@ -1,7 +1,7 @@
 <?php
 
 function GetAnnouncements(){
-	$Announcement=array (
+	$Announcements=array (
 		"Came here for work?"=>"Check out the Work page for
 		new auditions and job postings.",
 		"What should you see this weekend?"=>"Check out
@@ -10,8 +10,7 @@ function GetAnnouncements(){
 		Theatre website is live!"
 	);
 
-	foreach($Announcement as $Headline => $Blurb){
-		echo"<p class='Headline'>".$Headline."</p>";
-		echo"<p>".$Blurb."</p>";
-	};
+	return $Announcements;
 }
+
+return GetAnnouncements();

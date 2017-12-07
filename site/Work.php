@@ -5,7 +5,13 @@
 	?>
 		<div class="WorkList">
 			<?php
-				GetWorkList();
+				$Work = GetWorkList();
+				foreach ($Work as $Row){
+					echo"<p class='Headline'>".$Row['JobName']."</p>";
+					echo"<p>".$Row['JobDescription']."</p>";
+					echo"<p class='Submitter'>Submitted by <b>"
+					.$Row['Submitter']."</b> on ".$Row['SubmitDate']."</p>";
+				};
 			?>
 		</div>
 	<?php
