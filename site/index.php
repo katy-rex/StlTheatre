@@ -1,25 +1,10 @@
 <html>
-	<head>
-	<link rel="stylesheet" type="text/css" href="Style.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway"
-	rel="stylesheet">
-		<title>
-			St. Louis Theatre
-		</title>
-	</head>
-	<body>
-		<div class="Header">
-			<?php include 'include/header.php';
-				PrintHeader();
-			?>
-		</div>
-		<div class="PageTitle">
-			<h2>
-				Home
-			</h2>
-		</div>
-		<div class="DivideLine">
-		</div>
+<?php
+		include_once('init.php');
+		$SiteTitle = 'St. Louis Theatre';
+		$PageTitle = 'Home';
+		PrintHeader($SiteTitle, $PageTitle);
+	?>
 		<div class="Announcements">
 			<h3>
 				Announcements
@@ -69,10 +54,5 @@
 				whole bunch! This is exciting! Here's more about this website.
 			</p>
 		</div>
-		<div class="IncludeFooter">
-			<?php include 'include/footer.php';
-				PrintFooter();
-			?>
-		</div>
-	</body>
-</html>
+	<?php
+		PrintFooter();

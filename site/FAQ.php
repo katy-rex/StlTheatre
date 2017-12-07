@@ -1,25 +1,10 @@
 <html>
-	<head>
-	<link rel="stylesheet" type="text/css" href="Style.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway"
-	rel="stylesheet">
-		<title>
-			St. Louis Theatre FAQ
-		</title>
-	</head>
-	<body>
-		<div class="Header">
-			<?php include 'include/header.php';
-				PrintHeader();
-			?>
-		</div>
-		<div class="PageTitle">
-			<h2>
-				FAQ
-			</h2>
-		</div>
-		<div class="DivideLine">
-		</div>
+   <?php
+		include_once('init.php');
+		$SiteTitle = 'St. Louis Theatre FAQ';
+		$PageTitle = 'FAQ';
+		PrintHeader($SiteTitle, $PageTitle);
+	?>
 		<div class="Questions">
 			<?php
 				$FAQ=array (
@@ -34,10 +19,5 @@
 				}
 			?>
 		</div>
-		<div class="IncludeFooter">
-			<?php include 'include/footer.php';
-				PrintFooter();
-			?>
-		</div>
-	</body>
-</html>
+	<?php
+		PrintFooter();
