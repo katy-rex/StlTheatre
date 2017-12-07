@@ -1,9 +1,7 @@
 <html>
 	<?php
 		include_once('init.php');
-		$SiteTitle = 'St. Louis Theatre Contact';
-		$PageTitle = 'Contact';
-		PrintHeader($SiteTitle, $PageTitle);
+		PrintHeader('St. Louis Theatre Contact', 'Contact');
 	?>
 	<div class="ContactForm">
 		<p>
