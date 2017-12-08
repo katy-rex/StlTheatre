@@ -3,7 +3,7 @@
 function PrintHeader($SiteTitle, $PageTitle){
 	echo"
 	<head>
-	<link rel='stylesheet' type='text/css' href='Style.css'>
+	<link rel='stylesheet' type='text/css' href='/Style.css'>
 	<link href='https://fonts.googleapis.com/css?family=Raleway'
 	rel='stylesheet'>
 		<title>"
@@ -13,7 +13,7 @@ function PrintHeader($SiteTitle, $PageTitle){
 	<body>
 		<div class='Header'>
 			<div class='HeaderImage'>
-				<img src='Curtain.jpg' alt='Curtains'
+				<img src='/Curtain.jpg' alt='Curtains'
 				width='100%' height='30%' />
 				<div class='HeaderLine'>
 					<h1>
