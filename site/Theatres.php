@@ -1,88 +1,18 @@
 <html>
-	<?php
+<?php
 		include_once('init.php');
-		$SiteTitle = 'St. Louis Theatre List';
-		$PageTitle = 'Theatres';
-		PrintHeader($SiteTitle, $PageTitle);
+		PrintHeader('St. Louis Theatre List', 'Theatres');
 	?>
-	<div class="TheatreList">
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-		<p class="TheatreName">
-			Theatre Name
-		</p>
-		<p class="TheatreDescription">
-			This is the description of the theatre in this list,
-			which is here on this page.
-		</p>
-	</div>
+		<div class="TheatreList">
+			<?php
+				$TheatreList = GetTheatreList();
+				foreach ($TheatreList as $Row){
+					echo"<p class='Headline'>".$Row['TheatreName']."</p>";
+					echo"<p>".$Row['TheatreDescription']."</p>";
+					echo"<p>View ".$Row['TheatreName']."'s <a href="
+					.$Row['Profile'].">profile</a>";
+				};
+			 ?>
+		</div>
 	<?php
 	 	PrintFooter();

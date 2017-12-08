@@ -1,41 +1,16 @@
 <html>
 	<?php
 		include_once('init.php');
-		$SiteTitle = 'St. Louis Theatre FAQ';
-		$PageTitle = 'FAQ';
-		PrintHeader($SiteTitle, $PageTitle);
+		PrintHeader('St. Louis Theatre FAQ', 'FAQ');
 	?>
-	<div class="Questions">
-		<p class="QuestionTitle">
-			What is the question?
-		</p>
-		<p class="QuestionAnswer">
-			This is an answer for the question listed above.
-		</p>
-		<p class="QuestionTitle">
-			What is the question?
-		</p>
-		<p class="QuestionAnswer">
-			This is an answer for the question listed above.
-		</p>
-		<p class="QuestionTitle">
-			What is the question?
-		</p>
-		<p class="QuestionAnswer">
-			This is an answer for the question listed above.
-		</p>
-		<p class="QuestionTitle">
-			What is the question?
-		</p>
-		<p class="QuestionAnswer">
-			This is an answer for the question listed above.
-		</p>
-		<p class="QuestionTitle">
-			What is the question?
-		</p>
-		<p class="QuestionAnswer">
-			This is an answer for the question listed above.
-		</p>
+	<div class='Questions')>
+		<?php
+			$Faq = GetFaq();
+			foreach($Faq as $Question => $Answer){
+				echo"<p class='Headline'>".$Question."</p>
+				<p>".$Answer."</p>";
+			};
+		?>
 	</div>
 	<?php
 		PrintFooter();

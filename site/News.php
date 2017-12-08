@@ -1,32 +1,18 @@
 <html>
 	<?php
 		include_once('init.php');
-		$SiteTitle = 'St. Louis Theatre News';
-		$PageTitle = 'News';
-		PrintHeader($SiteTitle, $PageTitle);
+		PrintHeader('St. Louis Theatre News', 'News');
 	?>
-	<div class="News">
-		<p class="Headline">
-			Headline
-		</p>
-		<p class="Blurb">
-			Blurbedy blurb about the headline. Blurb
-			goes here.
-		</p>
-		<p class="Headline">
-			Headline
-		</p>
-		<p class="Blurb">
-			Blurbedy blurb about the headline. Blurb
-			goes here.
-		</p>
-		<p class="Headline">
-			Headline
-		</p>
-		<p class="Blurb">
-			Blurbedy blurb about the headline. Blurb
-			goes here.
-		</p>
-	</div>
+		<div class="News">
+			<?php
+				$News = GetNews();
+				foreach ($News as $Row){
+					echo"<p class='Headline'>".$Row['Headline']."</p>";
+					echo"<p>".$Row['Blurb']."</p>";
+					echo"<p class='Submitter'>Submitted by <b>"
+					.$Row['Submitter']."</b> on ".$Row['SubmitDate']."</p>";
+				};
+			 ?>
+		</div>
 	<?php
 	 	PrintFooter();
