@@ -8,11 +8,12 @@
 				Announcements
 			</h3>
 			<?php
-				$Announcements = GetAnnouncements();
-				foreach($Announcements as $Headline => $Blurb){
-					echo"<p class='Headline'>".$Headline."</p>";
-					echo"<p>".$Blurb."</p>";
-				};
+				$Announcements = GetAnnouncements(2)->fetch();
+				var_dump($Announcements);
+				// foreach($Announcements as $Headline => $Blurb){
+				// 	echo"<p class='Headline'>".$Headline."</p>";
+				// 	echo"<p>".$Blurb."</p>";
+				// };
 			?>
 		</div>
 		<div class="DivideLine">

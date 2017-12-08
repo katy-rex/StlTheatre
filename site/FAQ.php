@@ -5,11 +5,12 @@
 	?>
 	<div class='Questions')>
 		<?php
-			$Faq = GetFaq();
-			foreach($Faq as $Question => $Answer){
-				echo"<p class='Headline'>".$Question."</p>
-				<p>".$Answer."</p>";
-			};
+			$Faq = GetFaq(2)->fetch();
+			var_dump($Faq);
+			// foreach($Faq as $Question => $Answer){
+			// 	echo"<p class='Headline'>".$Question."</p>
+			// 	<p>".$Answer."</p>";
+			// };
 		?>
 	</div>
 	<?php

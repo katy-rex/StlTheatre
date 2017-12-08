@@ -1,28 +1,14 @@
 <?php
 
-function GetTheatreList(){
-	$TheatreList=array(
-		array(
-			"TheatreName"=>"ERA",
-			"TheatreDescription"=>"ERA is an experimental
-			company that is highly collaborative.",
-			"Profile"=>"profiles/era.php",
-		),
-		array(
-			"TheatreName"=>"YoungLiars",
-			"TheatreDescription"=>"Another great experimental
-			theatre.",
-			"Profile"=>"profiles/youngliars.php",
-		),
-		array(
-			"TheatreName"=>"Slightly Askew Theatre Ensemble",
-			"TheatreDescription"=>"Yet another great theatre
-			company in St. Louis",
-			"Profile"=>"profiles/SATE.php",
-		)
-	);
-
-	return $TheatreList;
+function GetTheatreList($TheatreList){
+	return dbQuery("
+	SELECT *
+	FROM theatrelist
+	WHERE TheatreId = :TheatreId",
+	array(":TheatreId"=>$TheatreList));
 }
 
-return GetTheatreList();
+
+//Keeping this around incase I need to reference it later.
+// $DBResult = GetTheatreList(3)->fetch();
+// echo $DBResult['Category'];

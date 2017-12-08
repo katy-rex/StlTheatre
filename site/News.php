@@ -5,13 +5,14 @@
 	?>
 		<div class="News">
 			<?php
-				$News = GetNews();
-				foreach ($News as $Row){
-					echo"<p class='Headline'>".$Row['Headline']."</p>";
-					echo"<p>".$Row['Blurb']."</p>";
-					echo"<p class='Submitter'>Submitted by <b>"
-					.$Row['Submitter']."</b> on ".$Row['SubmitDate']."</p>";
-				};
+				$News = GetNews(2)->fetch();
+				var_dump($News);
+				// foreach ($News as $Row){
+				// 	echo"<p class='Headline'>".$Row['Headline']."</p>";
+				// 	echo"<p>".$Row['Blurb']."</p>";
+				// 	echo"<p class='Submitter'>Submitted by <b>"
+				// 	.$Row['Submitter']."</b> on ".$Row['SubmitDate']."</p>";
+				// };
 			 ?>
 		</div>
 	<?php
