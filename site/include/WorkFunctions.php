@@ -1,9 +1,8 @@
 <?php
 
-function GetWorkList($WorkId){
+function GetWorkList(){
 	return dbQuery("
 	SELECT *
-	FROM jobs
-	WHERE JobId = :JobId",
-	array(":JobId"=>$WorkId));
+	FROM jobs")
+	->fetchAll();
 }

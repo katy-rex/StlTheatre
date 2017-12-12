@@ -22,35 +22,35 @@ function PrintHeader($SiteTitle, $PageTitle){
 				</div>
 			</div>
 			<div class='NavBar'>
-				<a href='index.php'>
+				<a href='/index.php'>
 					<div class='NavButton'>
 						<p>
 							Home
 						</p>
 					</div>
 				</a>
-				<a href='News.php'>
+				<a href='/News.php'>
 					<div class='NavButton'>
 						<p>
 							News
 						</p>
 					</div>
 				</a>
-				<a href='Calendar.php'>
+				<a href='/Calendar.php'>
 					<div class='NavButton'>
 						<p>
 							Calendar
 						</p>
 					</div>
 				</a>
-				<a href='Work.php'>
+				<a href='/Work.php'>
 					<div class='NavButton'>
 						<p>
 							Work
 						</p>
 					</div>
 				</a>
-				<a href='Theatres.php'>
+				<a href='/Theatres.php'>
 					<div class='NavButton'>
 						<p>
 							Theatres

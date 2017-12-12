@@ -1,10 +1,9 @@
 <?php
 
 
-function GetFaq($FaqId){
+function GetFaq(){
 	return dbQuery("
 	SELECT *
-	FROM faq
-	WHERE FaqId = :FaqId",
-	array(":FaqId"=>$FaqId));
+	FROM faq")
+	->fetchAll();
 }

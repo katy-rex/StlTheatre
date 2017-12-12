@@ -1,14 +1,13 @@
 <?php
 
-function GetTheatreList($TheatreList){
+function GetTheatreList(){
 	return dbQuery("
 	SELECT *
-	FROM theatrelist
-	WHERE TheatreId = :TheatreId",
-	array(":TheatreId"=>$TheatreList));
+	FROM theatrelist")
+	->fetchAll();
 }
 
 
-//Keeping this around incase I need to reference it later.
+//Keeping this around in case I need to reference it later.
 // $DBResult = GetTheatreList(3)->fetch();
 // echo $DBResult['Category'];

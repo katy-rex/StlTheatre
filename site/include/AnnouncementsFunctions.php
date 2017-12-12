@@ -1,9 +1,8 @@
 <?php
 
-function GetAnnouncements($Announcements){
+function GetAnnouncements(){
 	return dbQuery("
 	SELECT *
-	FROM announcements
-	WHERE AnnouncementId = :AnnouncementId",
-	array(":AnnouncementId"=>$Announcements));
+	FROM announcements")
+	->fetchAll();
 }

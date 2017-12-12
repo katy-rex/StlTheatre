@@ -1,10 +1,9 @@
 <?php
 
 
-function GetNews($NewsId){
+function GetNews(){
 	return dbQuery("
 	SELECT *
-	FROM news
-	WHERE NewsId = :NewsId",
-	array(":NewsId"=>$NewsId));
+	FROM news")
+	->fetchAll();
 }

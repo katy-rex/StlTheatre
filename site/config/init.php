@@ -8,4 +8,4 @@ include('include/AnnouncementsFunctions.php');
 include('include/NewsFunctions.php');
 include('include/TheatreListFunctions.php');
 include('include/WorkFunctions.php');
-//global $Faq;
+include('include/form.php');
