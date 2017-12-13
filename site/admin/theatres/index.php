@@ -9,8 +9,12 @@
 				foreach ($TheatreList as $Row){
 					echo"<p class='Headline'>".$Row['TheatreName']."</p>";
 					echo"<p>".$Row['TheatreDescription']."</p>";
-					echo"<p>View website: ".$Row['Website']."</p>";
-					echo"<p>Contact: ".$Row['Email']."</p>";
+					echo"<p><b>Website:</b> ".$Row['Website']."</p>";
+					echo"<p><b>Contact:</b> ".$Row['Email']."</p>";
+					echo"<p><b>Date Formed:</b> ".$Row['DateFormed']."</p>";
+					echo"<p><b>Address:</b> ".$Row['StreetAddress'].", "
+					.$Row['City'].", ".$Row['State'].", "
+					.$Row['Zip']."</p>";
 				};
 			 ?>
 		</div>

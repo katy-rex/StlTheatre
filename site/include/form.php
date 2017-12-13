@@ -3,15 +3,15 @@
 
 $FormErrors = array();
 
-function TextBox($FieldName, $SubmitName){
+function TextBox($FieldName){
 	global $FormErrors;
 	echo"<input type='text' value='".@$_REQUEST[$FieldName]."' name='$FieldName' />";
 	echo"$FormErrors[$FieldName]";
 }
 
-function DropDown($FieldName, $Option1, $Option2, $Option3, $SubmitName){
+function DropDown($FieldName, $Option1, $Option2, $Option3, $Option4){
 	global $FormErrors;
-	echo"<select name='$FieldName'>
+	echo"<select value='".@$_REQUEST[$FieldName]."' name='$FieldName'>
 	<option value='$Option1'>
 		$Option1
 	</option>
@@ -21,19 +21,23 @@ function DropDown($FieldName, $Option1, $Option2, $Option3, $SubmitName){
 	<option value='$Option3'>
 		$Option3
 	</option>
+	<option value='$Option4'>
+		$Option4
+	</option>
 	</select>";
 	echo"$FormErrors[$FieldName]";
 }
 
-function TextArea($FieldName, $SubmitName){
+function TextArea($FieldName){
 	global $FormErrors;
-	echo"<textarea name='$FieldName' rows='10' cols='30'></textarea>";
+	echo"<textarea value='".@$_REQUEST[$FieldName]."' name='$FieldName' rows='10' cols='30'></textarea>";
 	echo"$FormErrors[$FieldName]";
 }
 
-// function Date($FieldName){
-// 	global $FormErrors;
-// 	echo"<input type=''
-// }
+function DateInput($FieldName){
+	global $FormErrors;
+	echo"<input type='date' value='".@$_REQUEST[$FieldName]."' name='$FieldName' />";
+	echo"$FormErrors[$FieldName]";
+}
 
 //.($ContactNameMissing ? "Must be 6 characters":"")."
