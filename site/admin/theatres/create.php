@@ -5,8 +5,8 @@ PrintHeader('Create Theatre', 'Create Theatre');
 
 if(isset($_REQUEST['TheatreFormSubmitted'])){
 	//die("the form was submitted");
-	if(!@$_REQUEST['TheatreName'] || strlen($_REQUEST['TheatreName']) < 6){
-		$FormErrors['TheatreName'] = "Must be at least 6 characters long";
+	if(!@$_REQUEST['TheatreName']){
+		$FormErrors['TheatreName'] = "Theatre Name required";
 	}
 	if(!@$_REQUEST['TheatreDescription']){
 		$FormErrors['TheatreDescription'] = "Theatre must have a description";

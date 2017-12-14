@@ -5,7 +5,7 @@
 	?>
 		<div class="TheatreList">
 			<?php
-				$TheatreList = GetTheatreList();
+				$TheatreList = TheatreListAlpha();
 				foreach ($TheatreList as $Row){
 					echo"<p class='Headline'>".$Row['TheatreName']."</p>";
 					echo"<p>".$Row['TheatreDescription']."</p>";

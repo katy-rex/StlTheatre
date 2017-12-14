@@ -19,72 +19,69 @@ if(isset($_REQUEST['EditTheatreSubmitted'])){
 	}
 	if(sizeof($FormErrors) == 0){
 		$TheatreInfo = GetTheatre($_REQUEST['EditTheatre']);
-		echo"".$TheatreInfo['Email']."";
-		var_dump($TheatreInfo);
+		//echo"".$TheatreInfo['Email']."";
+		//var_dump($TheatreInfo);
 		foreach($TheatreInfo as $Row){
 			echo"<div class='ContactForm'>
+				<h3>Edit the theatre information here:</h3>
+				<br />
 				<form action='' method='post'>
+				Theatre Id:
+			<br /><br />";
+			@ReadOnlyTextBox($Row['TheatreId'], 'TheatreId');
+			echo"<br /><br />
 					Theatre Name:
-					<br /><br />";
-			@TextBox($Row['TheatreName']);
+				<br /><br />";
+			@EditTextBox($Row['TheatreName'], 'TheatreName');
 			echo"<br /><br />
 					Theatre Description:
 				<br /><br />";
+			@EditTextArea($Row['TheatreDescription'], 'TheatreDescription');
+			echo"<br /><br />
+					Email:
+				<br /><br />";
+			@EditTextBox($Row['Email'], 'Email');
+			echo"<br /><br />
+					Street Address:
+				<br /><br />";
+			@EditTextBox($Row['StreetAddress'], 'StreetAddress');
+			echo"<br /><br />
+					City:
+				<br /><br />";
+			@EditTextBox($Row['City'], 'City');
+			echo"<br /><br />
+					State:
+				<br /><br />";
+			@EditDropDown($Row['State'], 'State', 'Missouri', 'Illinois');
+			echo"<br /><br />
+					Zip:
+				<br /><br />";
+			@EditTextBox($Row['Zip'], 'Zip');
+			echo"<br /><br />
+					Website:
+				<br /><br />";
+			@EditTextBox($Row['Website'], 'Website');
+			echo"<br /><br />
+					Date Formed:
+				<br /><br />";
+			@EditDateInput($Row['DateFormed'], 'DateFormed');
+			echo"<br /><br />
+					Type of theatre:
+				<br /><br />";
+			@EditDropDown($Row['Type'],'Type', 'Equity', 'SPT', 'Non-Equity',
+			'Community');
+			echo"<br /><br />
+					<input type='submit' name='TheatreFormSubmitted' />
+				</form>
+				</div>";
 		}
 	}
-		// echo"<div class='ContactForm'>
-		// 	<form action='' method='post'>
-		// 		Theatre Name:
-		// 		<br /><br />";
-		// @TextBox($TheatreInfo['TheatreName']);
-		// echo"<br /><br />
-		// 		Theatre Description:
-		// 	<br /><br />";
-		// @TextArea($TheatreInfo['TheatreDescription']);
-		// echo"<br /><br />
-		// 		Email:
-		// 	<br /><br />";
-		// @TextBox($TheatreInfo['Email']);
-		// echo"<br /><br />
-		// 		Street Address:
-		// 	<br /><br />";
-		// @TextBox($TheatreInfo['StreetAddress']);
-		// echo"<br /><br />
-		// 		City:
-		// 	<br /><br />";
-		// @TextBox($TheatreInfo['City']);
-		// // echo"<br /><br />
-		// // 		State:
-		// // 	<br /><br />";
-		// // @DropDown('State', 'Missouri', 'Illinois');
-		// echo"<br /><br />
-		// 		Zip:
-		// 	<br /><br />";
-		// @TextBox($TheatreInfo['Zip']);
-		// echo"<br /><br />
-		// 		Website:
-		// 	<br /><br />";
-		// @TextBox($TheatreInfo['Website']);
-		// echo"<br /><br />
-		// 		Date Formed:
-		// 	<br /><br />";
-		// @DateInput($TheatreInfo['DateFormed']);
-		// // echo"<br /><br />
-		// // 		Type of theatre:
-		// // 	<br /><br />";
-		// // @DropDown('Type', 'Equity', 'SPT', 'Non-Equity', 'Community');
-		// echo"<br /><br />
-		// 	<input type='submit' name='TheatreFormSubmitted' />
-		// 	</form>
-		// 	</div>";
-		//header('location:/theatres.php');
-		//exit;
 }
 
 if(isset($_REQUEST['TheatreFormSubmitted'])){
 	//die("the form was submitted");
-	if(!@$_REQUEST['TheatreName'] || strlen($_REQUEST['TheatreName']) < 6){
-		$FormErrors['TheatreName'] = "Must be at least 6 characters long";
+	if(!@$_REQUEST['TheatreName']){
+		$FormErrors['TheatreName'] = "Theatre Name required";
 	}
 	if(!@$_REQUEST['TheatreDescription']){
 		$FormErrors['TheatreDescription'] = "Theatre must have a description";
@@ -114,73 +111,32 @@ if(isset($_REQUEST['TheatreFormSubmitted'])){
 		$FormErrors['Type'] = "Type required";
 	}
 	if(sizeof($FormErrors) == 0){
-		SaveForm($_REQUEST['TheatreName'], $_REQUEST['TheatreDescription'],
+		UpdateForm($_REQUEST['TheatreId'], $_REQUEST['TheatreName'],
+		$_REQUEST['TheatreDescription'],
 		$_REQUEST['Email'], $_REQUEST['StreetAddress'], $_REQUEST['City'],
 		$_REQUEST['State'], $_REQUEST['Zip'], $_REQUEST['Website'],
 		$_REQUEST['DateFormed'], $_REQUEST['Type']);
-		echo"You did it!";
-		//header('location:/theatres.php');
+		//echo"You did it!";
+		header('location:/admin/theatres/confirmation.php');
 		exit;
 	}
 };
 
-// function FillTheatreInfo(){
-// echo"<div class='ContactForm'>
-// 	<form action='' method='post'>
-// 		Theatre Name:
-// 		<br /><br />";
-// @TextBox('TheatreName');
-// echo"<br /><br />
-// 		Theatre Description:
-// 	<br /><br />";
-// @TextArea('TheatreDescription');
-// echo"<br /><br />
-// 		Email:
-// 	<br /><br />";
-// @TextBox('Email');
-// echo"<br /><br />
-// 		Street Address:
-// 	<br /><br />";
-// @TextBox('StreetAddress');
-// echo"<br /><br />
-// 		City:
-// 	<br /><br />";
-// @TextBox('City');
-// echo"<br /><br />
-// 		State:
-// 	<br /><br />";
-// @DropDown('State', 'Missouri', 'Illinois');
-// echo"<br /><br />
-// 		Zip:
-// 	<br /><br />";
-// @TextBox('Zip');
-// echo"<br /><br />
-// 		Website:
-// 	<br /><br />";
-// @TextBox('Website');
-// echo"<br /><br />
-// 		Date Formed:
-// 	<br /><br />";
-// @DateInput('DateFormed');
-// echo"<br /><br />
-// 		Type of theatre:
-// 	<br /><br />";
-// @DropDown('Type', 'Equity', 'SPT', 'Non-Equity', 'Community');
-// echo"<br /><br />
-// 	<input type='submit' name='TheatreFormSubmitted' />
-// 	</form>
-// 	</div>";
-// }
 
 
-function SaveForm($TheatreName, $TheatreDescription, $Email, $StreetAddress,
-	$City, $State, $Zip, $Website, $DateFormed, $Type){
+function UpdateForm($TheatreId, $TheatreName, $TheatreDescription, $Email,
+	$StreetAddress, $City, $State, $Zip, $Website, $DateFormed, $Type){
 	//echo"hi";
 	return dbQuery("
-	INSERT INTO theatrelist (TheatreName, TheatreDescription, Email,
-	StreetAddress, City, State, Zip, Website, DateFormed, Type)
-	VALUES('$TheatreName', '$TheatreDescription', '$Email', '$StreetAddress',
-	'$City', '$State', '$Zip', '$Website', '$DateFormed', '$Type')");
+	UPDATE theatrelist
+	SET TheatreName = '$TheatreName',
+	TheatreDescription = '$TheatreDescription', Email = '$Email',
+	StreetAddress = '$StreetAddress', City = '$City', State = '$State',
+	Zip = '$Zip', Website = '$Website', DateFormed = '$DateFormed',
+	Type = '$Type'
+	WHERE TheatreId = '$TheatreId'
+	")
+	->execute();
 }
 
 function GetTheatre($TheatreName){
