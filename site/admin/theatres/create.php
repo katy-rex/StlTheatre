@@ -1,6 +1,6 @@
 <?php
 include_once('init.php');
-PrintHeader('Create Theatre', 'Create Theatre');
+
 
 
 if(isset($_REQUEST['TheatreFormSubmitted'])){
@@ -11,7 +11,7 @@ if(isset($_REQUEST['TheatreFormSubmitted'])){
 	if(!@$_REQUEST['TheatreDescription']){
 		$FormErrors['TheatreDescription'] = "Theatre must have a description";
 	}
-	if(!@$_REQUEST['Email'] || strpos($_REQUEST['Email'], '@') == false){
+	if(!@$_REQUEST['Email'] || !strpos($_REQUEST['Email'], '@')){
 		$FormErrors['Email'] = "Must be valid email address";
 	}
 	if(!@$_REQUEST['StreetAddress']){
@@ -26,7 +26,7 @@ if(isset($_REQUEST['TheatreFormSubmitted'])){
 	if(!@$_REQUEST['Zip']){
 		$FormErrors['Zip'] = "Zip required";
 	}
-	if(!@$_REQUEST['Website'] || strpos($_REQUEST['Website'], '.') == false){
+	if(!@$_REQUEST['Website'] || !strpos($_REQUEST['Website'], '.')){
 		$FormErrors['Website'] = "Valid website required";
 	}
 	if(!@$_REQUEST['DateFormed']){
@@ -36,7 +36,7 @@ if(isset($_REQUEST['TheatreFormSubmitted'])){
 		$FormErrors['Type'] = "Type required";
 	}
 	if(sizeof($FormErrors) == 0){
-		SaveForm($_REQUEST['TheatreName'], $_REQUEST['TheatreDescription'],
+		CreateTheatre($_REQUEST['TheatreName'], $_REQUEST['TheatreDescription'],
 		$_REQUEST['Email'], $_REQUEST['StreetAddress'], $_REQUEST['City'],
 		$_REQUEST['State'], $_REQUEST['Zip'], $_REQUEST['Website'],
 		$_REQUEST['DateFormed'], $_REQUEST['Type']);
@@ -46,10 +46,11 @@ if(isset($_REQUEST['TheatreFormSubmitted'])){
 	}
 };
 
+PrintHeader('Create Theatre', 'Create Theatre');
 
 echo"<div class='ContactForm'>
-	<form action='' method='post'>
-		Theatre Name:
+		<form action='' method='post'>
+			Theatre Name:
 		<br /><br />";
 @TextBox('TheatreName');
 echo"<br /><br />
@@ -71,7 +72,7 @@ echo"<br /><br />
 echo"<br /><br />
 		State:
 	<br /><br />";
-@DropDown('State', 'Missouri', 'Illinois');
+@DropDown('State', $StateOptions);
 echo"<br /><br />
 		Zip:
 	<br /><br />";
@@ -87,21 +88,10 @@ echo"<br /><br />
 echo"<br /><br />
 		Type of theatre:
 	<br /><br />";
-@DropDown('Type', 'Equity', 'SPT', 'Non-Equity', 'Community');
+@DropDown('Type', $TypeOptions);
 echo"<br /><br />
-	<input type='submit' name='TheatreFormSubmitted' />
-	</form>
+			<input type='submit' name='TheatreFormSubmitted' />
+		</form>
 	</div>";
-
-
-function SaveForm($TheatreName, $TheatreDescription, $Email, $StreetAddress,
-	$City, $State, $Zip, $Website, $DateFormed, $Type){
-	//echo"hi";
-	return dbQuery("
-	INSERT INTO theatrelist (TheatreName, TheatreDescription, Email,
-	StreetAddress, City, State, Zip, Website, DateFormed, Type)
-	VALUES('$TheatreName', '$TheatreDescription', '$Email', '$StreetAddress',
-	'$City', '$State', '$Zip', '$Website', '$DateFormed', '$Type')");
-}
 
 PrintFooter();
