@@ -5,80 +5,70 @@ $FormErrors = array();
 $StateOptions = array("Illinois", "Missouri");
 $TypeOptions = array("Equity", "SPT", "Non-Equity", "Community");
 
-function TextBox($FieldName){
-	global $FormErrors;
-	echo"<input type='text' value='".@$_REQUEST[$FieldName]."'
-		name='$FieldName' />";
-	echo"$FormErrors[$FieldName]";
-}
-
-function EditTextBox($Value, $FieldName){
+function TextBox($FieldName, $Value){
 	global $FormErrors;
 	echo"<input type='text' value='$Value' name='$FieldName' />";
 	echo"$FormErrors[$FieldName]";
 }
 
-function ReadOnlyTextBox($Value, $FieldName){
+function ReadOnlyTextBox($FieldName, $Value = '@$_REQUEST["$FieldName"]'){
 	echo"<input type='text' value='$Value' name='$FieldName' readonly />";
 }
 
-function DropDown($FieldName, $MenuOptions){
+function TextArea($FieldName, $Value){
 	global $FormErrors;
-	echo"<select value='".@$_REQUEST[$FieldName]."' name='$FieldName'>";
+	echo"<textarea name='$FieldName' rows='10' cols='30'>"
+			.$Value.
+		"</textarea>";
+	echo"$FormErrors[$FieldName]";
+}
+
+function DropDown($FieldName, $MenuOptions, $Value){
+	global $FormErrors;
+	echo"<select name='$FieldName'>";
 	foreach($MenuOptions as $Option){
-		echo"<option value='$Option'>
-					$Option
-				</option>";
-			}
-		echo"</select>";
+		echo"<option value='$Option'";
+		if($Value == $Option){
+			echo"selected";
+		};
+		echo">
+				$Option
+			</option>";
+		}
+	echo"</select>";
 	echo"$FormErrors[$FieldName]";
 }
 
-function EditDropDown($Value, $FieldName, $Option1, $Option2, $Option3, $Option4){
+function DateInput($FieldName, $Value){
 	global $FormErrors;
-	echo"<select value='$Value' name='$FieldName'>
-			<option value='$Option1'>
-				$Option1
-			</option>
-			<option value='$Option2'>
-				$Option2
-			</option>
-			<option value='$Option3'>
-				$Option3
-			</option>
-			<option value='$Option4'>
-				$Option4
-			</option>
-		</select>";
+	echo"<input type='date' value='$Value' name='$FieldName' />";
 	echo"$FormErrors[$FieldName]";
 }
 
-function TextArea($FieldName){
+function ValidateText($FieldName, $Message = ' Required'){
 	global $FormErrors;
-	echo"<textarea value='".@$_REQUEST[$FieldName]."' name='$FieldName'
-		rows='10' cols='30'></textarea>";
-	echo"$FormErrors[$FieldName]";
+	if(!@$_REQUEST[$FieldName]){
+		$FormErrors[$FieldName] = "$Message";
+	}
 }
 
-function EditTextArea($Value, $FieldName){
+function ValidateEmail($FieldName, $Message = ' Valid email address required'){
 	global $FormErrors;
-	echo"<textarea value='$Value' name='$FieldName' rows='10'
-		cols='30'></textarea>";
-	echo"$FormErrors[$FieldName]";
+	if(!@$_REQUEST[$FieldName] ||
+			!filter_var($_REQUEST['Email'], FILTER_VALIDATE_EMAIL)){
+				$FormErrors[$FieldName] = "$Message";
+	}
 }
 
-function DateInput($FieldName){
+function ValidateWebsite($FieldName, $Message = ' Valid website required'){
 	global $FormErrors;
-	echo"<input type='date' value='".@$_REQUEST[$FieldName]."'
-		name='$FieldName' />";
-	echo"$FormErrors[$FieldName]";
-}
-
-function EditDateInput($Value, $FieldName){
-	global $FormErrors;
-	echo"<input type='date' value='$Value'
-		name='$FieldName' />";
-	echo"$FormErrors[$FieldName]";
+	if(!@$_REQUEST[$FieldName] ||
+		!preg_match(
+			"/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i"
+			,$_REQUEST['Website'])
+		){
+		$FormErrors[$FieldName] = "$Message";
+	}
 }
 
 //.($ContactNameMissing ? "Must be 6 characters":"")."

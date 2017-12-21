@@ -1,47 +1,28 @@
 <?php
 include_once('init.php');
 
-
-
 if(isset($_REQUEST['TheatreFormSubmitted'])){
-	//die("the form was submitted");
-	if(!@$_REQUEST['TheatreName']){
-		$FormErrors['TheatreName'] = "Theatre Name required";
-	}
-	if(!@$_REQUEST['TheatreDescription']){
-		$FormErrors['TheatreDescription'] = "Theatre must have a description";
-	}
-	if(!@$_REQUEST['Email'] || !strpos($_REQUEST['Email'], '@')){
-		$FormErrors['Email'] = "Must be valid email address";
-	}
-	if(!@$_REQUEST['StreetAddress']){
-		$FormErrors['StreetAddress'] = "Address required";
-	}
-	if(!@$_REQUEST['City']){
-		$FormErrors['City'] = "City required";
-	}
-	if(!@$_REQUEST['State']){
-		$FormErrors['State'] = "State required";
-	}
-	if(!@$_REQUEST['Zip']){
-		$FormErrors['Zip'] = "Zip required";
-	}
-	if(!@$_REQUEST['Website'] || !strpos($_REQUEST['Website'], '.')){
-		$FormErrors['Website'] = "Valid website required";
-	}
-	if(!@$_REQUEST['DateFormed']){
-		$FormErrors['DateFormed'] = "Date required";
-	}
-	if(!@$_REQUEST['Type']){
-		$FormErrors['Type'] = "Type required";
-	}
+	ValidateText('TheatreName');
+	ValidateText('TheatreDescription');
+	ValidateEmail('Email');
+	ValidateText('StreetAddress');
+	ValidateText('City');
+	ValidateText('Zip');
+	ValidateWebsite('Website');
+	ValidateText('DateFormed');
 	if(sizeof($FormErrors) == 0){
-		CreateTheatre($_REQUEST['TheatreName'], $_REQUEST['TheatreDescription'],
-		$_REQUEST['Email'], $_REQUEST['StreetAddress'], $_REQUEST['City'],
-		$_REQUEST['State'], $_REQUEST['Zip'], $_REQUEST['Website'],
-		$_REQUEST['DateFormed'], $_REQUEST['Type']);
-		echo"You did it!";
-		//header('location:/theatres.php');
+		CreateTheatre($_REQUEST['TheatreName'],
+			$_REQUEST['TheatreDescription'],
+			$_REQUEST['Email'],
+			$_REQUEST['StreetAddress'],
+			$_REQUEST['City'],
+			$_REQUEST['State'],
+			$_REQUEST['Zip'],
+			$_REQUEST['Website'],
+			$_REQUEST['DateFormed'],
+			$_REQUEST['Type']
+		);
+		header('location:/admin/theatres/index.php');
 		exit;
 	}
 };
@@ -52,35 +33,35 @@ echo"<div class='ContactForm'>
 		<form action='' method='post'>
 			Theatre Name:
 		<br /><br />";
-@TextBox('TheatreName');
+@TextBox('TheatreName', @$_REQUEST['TheatreName']);
 echo"<br /><br />
 		Theatre Description:
 	<br /><br />";
-@TextArea('TheatreDescription');
+@TextArea('TheatreDescription', @$_REQUEST['TheatreDescription']);
 echo"<br /><br />
 		Email:
 	<br /><br />";
-@TextBox('Email');
+@TextBox('Email', @$_REQUEST['Email']);
 echo"<br /><br />
 		Street Address:
 	<br /><br />";
-@TextBox('StreetAddress');
+@TextBox('StreetAddress', @$_REQUEST['StreetAddress']);
 echo"<br /><br />
 		City:
 	<br /><br />";
-@TextBox('City');
+@TextBox('City', @$_REQUEST['City']);
 echo"<br /><br />
 		State:
 	<br /><br />";
-@DropDown('State', $StateOptions);
+@DropDown('State', $StateOptions, @$_REQUEST['State']);
 echo"<br /><br />
 		Zip:
 	<br /><br />";
-@TextBox('Zip');
+@TextBox('Zip', @$_REQUEST['Zip']);
 echo"<br /><br />
 		Website:
 	<br /><br />";
-@TextBox('Website');
+@TextBox('Website', @$_REQUEST['Website']);
 echo"<br /><br />
 		Date Formed:
 	<br /><br />";
@@ -88,7 +69,7 @@ echo"<br /><br />
 echo"<br /><br />
 		Type of theatre:
 	<br /><br />";
-@DropDown('Type', $TypeOptions);
+@DropDown('Type', $TypeOptions, @$_REQUEST['Type']);
 echo"<br /><br />
 			<input type='submit' name='TheatreFormSubmitted' />
 		</form>
