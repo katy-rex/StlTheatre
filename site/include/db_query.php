@@ -22,6 +22,9 @@ $pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $opt);
 function dbQuery($query, $values=array()){
     global $pdo;
 
+    //filter_non_numeric
+    //filter_text
+
     //
 
     $stmt = $pdo->prepare($query);

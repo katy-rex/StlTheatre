@@ -6,9 +6,10 @@
 	<div class='Questions')>
 		<?php
 			$Faq = GetFaq();
-			foreach($Faq as $Question => $Answer){
-				echo"<p class='Headline'>".$Question."</p>
-				<p>".$Answer."</p>";
+			//var_dump($Faq);
+			foreach($Faq as $Row){
+				echo"<p class='Headline'>".$Row['Question']."</p>
+				<p>".$Row['Answer']."</p>";
 			};
 		?>
 	</div>

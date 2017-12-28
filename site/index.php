@@ -9,9 +9,11 @@
 			</h3>
 			<?php
 				$Announcements = GetAnnouncements();
-				foreach($Announcements as $Headline => $Blurb){
-					echo"<p class='Headline'>".$Headline."</p>";
-					echo"<p>".$Blurb."</p>";
+				//var_dump($Announcements);
+				foreach($Announcements as $Row){
+					echo"<p class='Headline'>".$Row['Headline'].
+					"</p>";
+					echo"<p>".$Row['Blurb']."</p>";
 				};
 			?>
 		</div>

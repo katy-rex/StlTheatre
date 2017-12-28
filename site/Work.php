@@ -5,12 +5,17 @@
 	?>
 		<div class="WorkList">
 			<?php
-				$Work = GetWorkList();
-				foreach ($Work as $Row){
+				$Worklist = GetWorkList();
+				//var_dump($Worklist);
+
+				// $Work3 = GetWorkList(3)->fetch();
+                    //
+				// echo $Work3['JobDescription'];
+				foreach ($Worklist as $Row){
 					echo"<p class='Headline'>".$Row['JobName']."</p>";
 					echo"<p>".$Row['JobDescription']."</p>";
 					echo"<p class='Submitter'>Submitted by <b>"
-					.$Row['Submitter']."</b> on ".$Row['SubmitDate']."</p>";
+					.$Row['TheatreId']."</b> on ".$Row['DateSubmitted']."</p>";
 				};
 			?>
 		</div>
